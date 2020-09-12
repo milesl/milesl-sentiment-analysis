@@ -4,5 +4,176 @@
         <name>milesl.sentiment.analysis</name>
     </assembly>
     <members>
+        <member name="T:milesl.sentiment.analysis.Configuration.TextAnalyticsConfig">
+            <summary>
+            Configuration for text analytics service
+            </summary>
+        </member>
+        <member name="P:milesl.sentiment.analysis.Configuration.TextAnalyticsConfig.EndPoint">
+            <summary>
+            Gets or sets the azure end point.
+            </summary>
+            <value>
+            The end point.
+            </value>
+        </member>
+        <member name="P:milesl.sentiment.analysis.Configuration.TextAnalyticsConfig.AnalyticsKey">
+            <summary>
+            Gets or sets the azure analytics key.
+            </summary>
+            <value>
+            The analytics key.
+            </value>
+        </member>
+        <member name="T:milesl.sentiment.analysis.Controllers.SentimentController">
+            <summary>
+            Controller for working with sentiment analysis
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:milesl.sentiment.analysis.Controllers.SentimentController.textAnalyticsService">
+            <summary>
+            The text analytics service
+            </summary>
+        </member>
+        <member name="M:milesl.sentiment.analysis.Controllers.SentimentController.#ctor(milesl.sentiment.analysis.Services.Interfaces.ITextAnalyticsService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:milesl.sentiment.analysis.Controllers.SentimentController"/> class.
+            </summary>
+            <param name="textAnalyticsService">The text analytics service.</param>
+        </member>
+        <member name="M:milesl.sentiment.analysis.Controllers.SentimentController.Analyse(milesl.sentiment.analysis.ViewModels.Requests.SentimentAnalysisRequest)">
+            <summary>
+            Analyses the specified sentiment analysis request.
+            </summary>
+            <param name="sentimentAnalysisRequest">The sentiment analysis request.</param>
+            <returns>
+            A sentiment analysis response
+            </returns>
+        </member>
+        <member name="T:milesl.sentiment.analysis.Program">
+            <summary>
+            Root program
+            </summary>
+        </member>
+        <member name="M:milesl.sentiment.analysis.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:milesl.sentiment.analysis.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">The arguments.</param>
+            <returns>Host builder</returns>
+        </member>
+        <member name="T:milesl.sentiment.analysis.Services.Interfaces.ITextAnalyticsService">
+            <summary>
+            Service for working with the text analytics service
+            </summary>
+        </member>
+        <member name="M:milesl.sentiment.analysis.Services.Interfaces.ITextAnalyticsService.AnalyseSentiment(System.String)">
+            <summary>
+            Analyses the sentiment of the provided content.
+            </summary>
+            <param name="content">The content.</param>
+            <returns>The sentiment result for the content.</returns>
+        </member>
+        <member name="T:milesl.sentiment.analysis.Services.TextAnalyticsService">
+            <summary>
+            Service for working with the text analytics service
+            </summary>
+            <seealso cref="T:milesl.sentiment.analysis.Services.Interfaces.ITextAnalyticsService" />
+        </member>
+        <member name="F:milesl.sentiment.analysis.Services.TextAnalyticsService.textAnalyticsConfig">
+            <summary>
+            The text analytics configuration
+            </summary>
+        </member>
+        <member name="F:milesl.sentiment.analysis.Services.TextAnalyticsService.azureKeyCredential">
+            <summary>
+            The azure key credential
+            </summary>
+        </member>
+        <member name="F:milesl.sentiment.analysis.Services.TextAnalyticsService.textAnalyticsClient">
+            <summary>
+            The text analytics client
+            </summary>
+        </member>
+        <member name="M:milesl.sentiment.analysis.Services.TextAnalyticsService.#ctor(Microsoft.Extensions.Options.IOptions{milesl.sentiment.analysis.Configuration.TextAnalyticsConfig})">
+            <summary>
+            Initializes a new instance of the <see cref="T:milesl.sentiment.analysis.Services.TextAnalyticsService"/> class.
+            </summary>
+            <param name="textAnalyticsConfig">The text analytics configuration.</param>
+        </member>
+        <member name="M:milesl.sentiment.analysis.Services.TextAnalyticsService.AnalyseSentiment(System.String)">
+            <summary>
+            Analyses the sentiment of the provided content.
+            </summary>
+            <param name="content">The content.</param>
+            <returns>
+            The sentiment result for the content.
+            </returns>
+        </member>
+        <member name="T:milesl.sentiment.analysis.Startup">
+            <summary>
+            Start up application
+            </summary>
+        </member>
+        <member name="M:milesl.sentiment.analysis.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:milesl.sentiment.analysis.Startup"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="P:milesl.sentiment.analysis.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="M:milesl.sentiment.analysis.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the services.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:milesl.sentiment.analysis.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configures the specified application.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+        <member name="T:milesl.sentiment.analysis.ViewModels.Requests.SentimentAnalysisRequest">
+            <summary>
+            Request for sentiment analysis
+            </summary>
+        </member>
+        <member name="P:milesl.sentiment.analysis.ViewModels.Requests.SentimentAnalysisRequest.Content">
+            <summary>
+            Gets or sets the content to be analysed.
+            </summary>
+            <value>
+            The content.
+            </value>
+        </member>
+        <member name="T:milesl.sentiment.analysis.ViewModels.Responses.SentimentAnalysisResponse">
+            <summary>
+            Response for sentiment analysis
+            </summary>
+        </member>
+        <member name="P:milesl.sentiment.analysis.ViewModels.Responses.SentimentAnalysisResponse.Sentiment">
+            <summary>
+            Gets or sets the sentiment.
+            </summary>
+            <value>
+            The sentiment.
+            </value>
+        </member>
     </members>
 </doc>
