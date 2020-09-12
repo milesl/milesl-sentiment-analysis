@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using milesl.sentiment.analysis.Models.Interfaces;
+using System.Threading.Tasks;
 
 namespace milesl.sentiment.analysis.Services.Interfaces
 {
@@ -12,6 +13,6 @@ namespace milesl.sentiment.analysis.Services.Interfaces
         /// </summary>
         /// <param name="content">The content.</param>
         /// <returns>The sentiment result for the content.</returns>
-        Task<string> AnalyseSentiment(string content);
+        Task<ISentimentAnalysisModel> AnalyseSentiment(string content);
     }
 }

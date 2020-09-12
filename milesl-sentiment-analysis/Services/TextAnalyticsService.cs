@@ -2,6 +2,8 @@
 using Azure.AI.TextAnalytics;
 using Microsoft.Extensions.Options;
 using milesl.sentiment.analysis.Configuration;
+using milesl.sentiment.analysis.Models;
+using milesl.sentiment.analysis.Models.Interfaces;
 using milesl.sentiment.analysis.Services.Interfaces;
 using System.Threading.Tasks;
 
@@ -46,10 +48,17 @@ namespace milesl.sentiment.analysis.Services
         /// <returns>
         /// The sentiment result for the content.
         /// </returns>
-        public async Task<string> AnalyseSentiment(string content)
+        public async Task<ISentimentAnalysisModel> AnalyseSentiment(string content)
         {
             DocumentSentiment documentSentiment = await this.textAnalyticsClient.AnalyzeSentimentAsync(content);
-            return documentSentiment.Sentiment.ToString();
+
+            var result = new SentimentAnalysisModel()
+            {
+                SentimentResult = documentSentiment.Sentiment.ToString()
+            };
+
+            return result;
+
             //Console.WriteLine($"Document sentiment: {documentSentiment.Sentiment}\n");
 
             //foreach (var sentence in documentSentiment.Sentences)

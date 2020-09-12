@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using milesl.sentiment.analysis.Models.Interfaces;
 using milesl.sentiment.analysis.Services.Interfaces;
 using milesl.sentiment.analysis.ViewModels.Requests;
 using milesl.sentiment.analysis.ViewModels.Responses;
@@ -39,7 +40,23 @@ namespace milesl.sentiment.analysis.Controllers
         public async Task<ActionResult<SentimentAnalysisResponse>> Analyse([FromBody]SentimentAnalysisRequest sentimentAnalysisRequest)
         {
             var sentiment = await this.textAnalyticsService.AnalyseSentiment(sentimentAnalysisRequest.Content);
-            return new SentimentAnalysisResponse() { Sentiment = sentiment };
+
+            return this.MapResult(sentiment);
+        }
+
+        /// <summary>
+        /// Maps the result.
+        /// </summary>
+        /// <param name="sentimentAnalysisModel">The sentiment analysis model.</param>
+        /// <returns> 
+        /// A sentiment analysis response
+        /// </returns>
+        private SentimentAnalysisResponse MapResult(ISentimentAnalysisModel sentimentAnalysisModel)
+        {
+            return new SentimentAnalysisResponse()
+            {
+                Sentiment = sentimentAnalysisModel.SentimentResult
+            };
         }
     }
 }
