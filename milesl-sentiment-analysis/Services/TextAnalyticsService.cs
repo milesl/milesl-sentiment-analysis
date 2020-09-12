@@ -17,16 +17,6 @@ namespace milesl.sentiment.analysis.Services
     public class TextAnalyticsService : ITextAnalyticsService
     {
         /// <summary>
-        /// The text analytics configuration
-        /// </summary>
-        private readonly TextAnalyticsConfig textAnalyticsConfig;
-
-        /// <summary>
-        /// The azure key credential
-        /// </summary>
-        private readonly AzureKeyCredential azureKeyCredential;
-
-        /// <summary>
         /// The text analytics client
         /// </summary>
         private readonly TextAnalyticsClient textAnalyticsClient;
@@ -37,9 +27,7 @@ namespace milesl.sentiment.analysis.Services
         /// <param name="textAnalyticsConfig">The text analytics configuration.</param>
         public TextAnalyticsService(IOptions<TextAnalyticsConfig> textAnalyticsConfig)
         {
-            this.textAnalyticsConfig = textAnalyticsConfig.Value;
-            this.azureKeyCredential = new AzureKeyCredential(this.textAnalyticsConfig.AnalyticsKey);
-            this.textAnalyticsClient = new TextAnalyticsClient(this.textAnalyticsConfig.EndPoint, this.azureKeyCredential);
+            this.textAnalyticsClient = new TextAnalyticsClient(textAnalyticsConfig.Value.EndPoint, new AzureKeyCredential(textAnalyticsConfig.Value.AnalyticsKey););
         }
 
         /// <summary>
