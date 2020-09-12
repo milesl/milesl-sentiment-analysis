@@ -56,7 +56,7 @@
             Maps the result.
             </summary>
             <param name="sentimentAnalysisModel">The sentiment analysis model.</param>
-            <returns> 
+            <returns>
             A sentiment analysis response
             </returns>
         </member>
@@ -73,6 +73,22 @@
             The sentiment result.
             </value>
         </member>
+        <member name="P:milesl.sentiment.analysis.Models.Interfaces.ISentimentAnalysisModel.ConfidenceScore">
+            <summary>
+            Gets or sets the confidence score.
+            </summary>
+            <value>
+            The confidence score.
+            </value>
+        </member>
+        <member name="P:milesl.sentiment.analysis.Models.Interfaces.ISentimentAnalysisModel.ConfidenceScores">
+            <summary>
+            Gets or sets the confidence scores.
+            </summary>
+            <value>
+            The confidence scores.
+            </value>
+        </member>
         <member name="T:milesl.sentiment.analysis.Models.SentimentAnalysisModel">
             <summary>
             Model for sentiment analysis
@@ -84,6 +100,22 @@
             </summary>
             <value>
             The sentiment result.
+            </value>
+        </member>
+        <member name="P:milesl.sentiment.analysis.Models.SentimentAnalysisModel.ConfidenceScores">
+            <summary>
+            Gets or sets the confidence scores.
+            </summary>
+            <value>
+            The confidence scores.
+            </value>
+        </member>
+        <member name="P:milesl.sentiment.analysis.Models.SentimentAnalysisModel.ConfidenceScore">
+            <summary>
+            Gets or sets the confidence score.
+            </summary>
+            <value>
+            The confidence score.
             </value>
         </member>
         <member name="T:milesl.sentiment.analysis.Program">
@@ -202,12 +234,28 @@
             Response for sentiment analysis
             </summary>
         </member>
-        <member name="P:milesl.sentiment.analysis.ViewModels.Responses.SentimentAnalysisResponse.Sentiment">
+        <member name="P:milesl.sentiment.analysis.ViewModels.Responses.SentimentAnalysisResponse.SentimentResult">
             <summary>
-            Gets or sets the sentiment.
+            Gets or sets the sentiment result.
             </summary>
             <value>
-            The sentiment.
+            The sentiment result.
+            </value>
+        </member>
+        <member name="P:milesl.sentiment.analysis.ViewModels.Responses.SentimentAnalysisResponse.ConfidenceScores">
+            <summary>
+            Gets or sets the confidence scores.
+            </summary>
+            <value>
+            The confidence scores.
+            </value>
+        </member>
+        <member name="P:milesl.sentiment.analysis.ViewModels.Responses.SentimentAnalysisResponse.ConfidenceScore">
+            <summary>
+            Gets or sets the confidence score.
+            </summary>
+            <value>
+            The confidence score.
             </value>
         </member>
     </members>

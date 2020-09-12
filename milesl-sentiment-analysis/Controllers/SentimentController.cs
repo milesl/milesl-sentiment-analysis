@@ -48,14 +48,16 @@ namespace milesl.sentiment.analysis.Controllers
         /// Maps the result.
         /// </summary>
         /// <param name="sentimentAnalysisModel">The sentiment analysis model.</param>
-        /// <returns> 
+        /// <returns>
         /// A sentiment analysis response
         /// </returns>
         private SentimentAnalysisResponse MapResult(ISentimentAnalysisModel sentimentAnalysisModel)
         {
             return new SentimentAnalysisResponse()
             {
-                Sentiment = sentimentAnalysisModel.SentimentResult
+                SentimentResult = sentimentAnalysisModel.SentimentResult,
+                ConfidenceScores = sentimentAnalysisModel.ConfidenceScores,
+                ConfidenceScore = sentimentAnalysisModel.ConfidenceScore
             };
         }
     }

@@ -5,6 +5,7 @@ using milesl.sentiment.analysis.Configuration;
 using milesl.sentiment.analysis.Models;
 using milesl.sentiment.analysis.Models.Interfaces;
 using milesl.sentiment.analysis.Services.Interfaces;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace milesl.sentiment.analysis.Services
@@ -54,23 +55,15 @@ namespace milesl.sentiment.analysis.Services
 
             var result = new SentimentAnalysisModel()
             {
-                SentimentResult = documentSentiment.Sentiment.ToString()
+                SentimentResult = documentSentiment.Sentiment.ToString(),
+                ConfidenceScores = new Dictionary<string, double>() {
+                    { "Neutral", documentSentiment.ConfidenceScores.Neutral },
+                    { "Positive", documentSentiment.ConfidenceScores.Positive },
+                    { "Negative", documentSentiment.ConfidenceScores.Negative }
+                }
             };
 
             return result;
-
-            //Console.WriteLine($"Document sentiment: {documentSentiment.Sentiment}\n");
-
-            //foreach (var sentence in documentSentiment.Sentences)
-            //{
-            //    Console.WriteLine($"\tText: \"{sentence.Text}\"");
-            //    Console.WriteLine($"\tSentence sentiment: {sentence.Sentiment}");
-            //    Console.WriteLine($"\tPositive score: {sentence.ConfidenceScores.Positive:0.00}");
-            //    Console.WriteLine($"\tNegative score: {sentence.ConfidenceScores.Negative:0.00}");
-            //    Console.WriteLine($"\tNeutral score: {sentence.ConfidenceScores.Neutral:0.00}\n");
-            //}
-
-            //return string.Empty;
         }
     }
 }

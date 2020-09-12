@@ -1,4 +1,5 @@
 ﻿using milesl.sentiment.analysis.Models.Interfaces;
+using System.Collections.Generic;
 
 namespace milesl.sentiment.analysis.Models
 {
@@ -14,5 +15,27 @@ namespace milesl.sentiment.analysis.Models
         /// The sentiment result.
         /// </value>
         public string SentimentResult { get; set; }
+
+        /// <summary>
+        /// Gets or sets the confidence scores.
+        /// </summary>
+        /// <value>
+        /// The confidence scores.
+        /// </value>
+        public IDictionary<string, double> ConfidenceScores { get; set; }
+
+        /// <summary>
+        /// Gets or sets the confidence score.
+        /// </summary>
+        /// <value>
+        /// The confidence score.
+        /// </value>
+        public double ConfidenceScore
+        {
+            get
+            {
+                return this.ConfidenceScores[this.SentimentResult];
+            }
+        }
     }
 }
