@@ -27,7 +27,7 @@ namespace milesl.sentiment.analysis.Services
         /// <param name="textAnalyticsConfig">The text analytics configuration.</param>
         public TextAnalyticsService(IOptions<TextAnalyticsConfig> textAnalyticsConfig)
         {
-            this.textAnalyticsClient = new TextAnalyticsClient(textAnalyticsConfig.Value.EndPoint, new AzureKeyCredential(textAnalyticsConfig.Value.AnalyticsKey););
+            this.textAnalyticsClient = new TextAnalyticsClient(textAnalyticsConfig.Value.EndPoint, new AzureKeyCredential(textAnalyticsConfig.Value.AnalyticsKey));
         }
 
         /// <summary>
