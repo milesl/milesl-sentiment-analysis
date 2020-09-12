@@ -38,7 +38,7 @@
         </member>
         <member name="M:milesl.sentiment.analysis.Controllers.SentimentController.#ctor(milesl.sentiment.analysis.Services.Interfaces.ITextAnalyticsService)">
             <summary>
-            Initializes a new instance of the <see cref="T:milesl.sentiment.analysis.Controllers.SentimentController"/> class.
+            Initializes a new instance of the <see cref="T:milesl.sentiment.analysis.Controllers.SentimentController" /> class.
             </summary>
             <param name="textAnalyticsService">The text analytics service.</param>
         </member>
@@ -104,7 +104,7 @@
         </member>
         <member name="M:milesl.sentiment.analysis.Services.TextAnalyticsService.#ctor(Microsoft.Extensions.Options.IOptions{milesl.sentiment.analysis.Configuration.TextAnalyticsConfig})">
             <summary>
-            Initializes a new instance of the <see cref="T:milesl.sentiment.analysis.Services.TextAnalyticsService"/> class.
+            Initializes a new instance of the <see cref="T:milesl.sentiment.analysis.Services.TextAnalyticsService" /> class.
             </summary>
             <param name="textAnalyticsConfig">The text analytics configuration.</param>
         </member>
@@ -124,7 +124,7 @@
         </member>
         <member name="M:milesl.sentiment.analysis.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
-            Initializes a new instance of the <see cref="T:milesl.sentiment.analysis.Startup"/> class.
+            Initializes a new instance of the <see cref="T:milesl.sentiment.analysis.Startup" /> class.
             </summary>
             <param name="configuration">The configuration.</param>
         </member>

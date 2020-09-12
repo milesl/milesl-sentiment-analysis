@@ -3,7 +3,6 @@ using Azure.AI.TextAnalytics;
 using Microsoft.Extensions.Options;
 using milesl.sentiment.analysis.Configuration;
 using milesl.sentiment.analysis.Services.Interfaces;
-using System;
 using System.Threading.Tasks;
 
 namespace milesl.sentiment.analysis.Services
